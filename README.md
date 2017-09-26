@@ -1,0 +1,1 @@
+A simple and fast build tool for ReactJs. Just `npm install` then `npm run start`.
