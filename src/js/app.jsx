@@ -2,13 +2,13 @@ import React from "react";
 import Header from "./components/header";
 import TicketList from "./components/ticket-list";
 
-function App(props) {
+const App = () => {
     return(
         <div>
             <Header/>
             <TicketList/>
         </div>
     );
-}
+};
 
 export default App;
