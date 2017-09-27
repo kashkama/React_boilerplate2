@@ -59,7 +59,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'root',
-      title: 'Queue',
+      title: 'React App',
       filename: resolve(__dirname, "dist", "index.html"),
     }),
     new CleanWebpackPlugin(['dist'])
