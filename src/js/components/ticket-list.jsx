@@ -1,7 +1,7 @@
 import React from "react";
 import Ticket from "./ticket";
 
-function TicketList(props) {
+function TicketList() {
     return(
         <Ticket
             location="3a"

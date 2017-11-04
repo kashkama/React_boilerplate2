@@ -1,12 +1,12 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 
-function Ticket(props) {
+function Ticket({names, location, issues, timestamp}) {
     return(
         <div>
-            <h3>{props.location} - {props.names}</h3>
-            <p><em>{props.issues}</em></p>
-            <p>{props.timestamp}</p>
+            <h3>{location} - {names}</h3>
+            <p><em>{issues}</em></p>
+            <p>{timestamp}</p>
             <hr/>
         </div>
     );

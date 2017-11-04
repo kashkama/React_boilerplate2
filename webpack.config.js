@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const { resolve } = require("path");
+const {resolve} = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
@@ -51,14 +51,20 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {
                     presets: [
-                        ["env", {"modules": false}],
+                        [
+                            "env", {
+                                "modules": false
+                            }
+                        ],
                         "stage-3",
-                        "react",
+                        "react"
                     ],
-                    plugins: [
-                        "react-hot-loader/babel"
-                    ]
+                    plugins: ["react-hot-loader/babel"]
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test:/\.(jpe?g|png|gif|svg)$/i,
@@ -73,10 +79,10 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
-            template:"template.ejs",
+            template: "template.ejs",
             appMountId: "root",
-            title: "React App",
-            filename: resolve(__dirname, "dist", "index.html"),
+            title: "Queue",
+            filename: resolve(__dirname, "dist", "index.html")
         }),
         new CleanWebpackPlugin(["dist"])
     ]
