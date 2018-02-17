@@ -22,15 +22,11 @@
         "react/jsx-no-undef": 2,
         "react/no-direct-mutation-state": 2,
         "react/no-multi-comp": 2,
-        "react/prefer-stateless-function": 2,
+        "react/prefer-stateless-function": 0,
         "react/jsx-indent-props": 2,
         "react/jsx-pascal-case": 2,
         "react/prop-types": 2,
-        "indent": [
-            "error",
-            4
-        ],
-        "SwitchCase": 0,
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "linebreak-style": [
             "error",
             "unix"
