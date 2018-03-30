@@ -1,9 +1,9 @@
 import React from "react";
 
-function Header() {
+const Header = () => {
     return(
-        <h1>Help Queue!!!</h1>
+        <h1>Welcome to ReactJS Development</h1>
     );
-}
+};
 
 export default Header;

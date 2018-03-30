@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const {resolve} = require("path");
+const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
@@ -64,7 +65,20 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader?includePaths[]=" + resolve(__dirname, "./node_modules/compass-mixins/lib")]
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: function() {
+                                return [autoprefixer];
+                            }
+                        }
+                    }
+                ]
             },
             {
                 test:/\.(jpe?g|png|gif|svg)$/i,
