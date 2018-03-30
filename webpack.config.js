@@ -64,7 +64,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: ["style-loader", "css-loader", "sass-loader?includePaths[]=" + resolve(__dirname, "./node_modules/compass-mixins/lib")]
             },
             {
                 test:/\.(jpe?g|png|gif|svg)$/i,
@@ -81,7 +81,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "template.ejs",
             appMountId: "root",
-            title: "Queue",
+            title: "React_App",
             filename: resolve(__dirname, "dist", "index.html")
         }),
         new CleanWebpackPlugin(["dist"])
