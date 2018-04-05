@@ -65,20 +65,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            plugins: function() {
-                                return [autoprefixer];
-                            }
-                        }
-                    }
-                ]
+                use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
             },
             {
                 test:/\.(jpe?g|png|gif|svg)$/i,
