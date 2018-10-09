@@ -1,1 +1,6 @@
-A simple and fast build tool for ReactJs. Just `npm install` then `npm run start`.
+# React_BoilerPlate2
+
+* A simple and fast starter kit tool for ReactJs. Just `npm install` then `npm run start`.
+
+## Note
+* Dependencies may be outdated. Update yourself where necessary.
