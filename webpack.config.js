@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const {resolve} = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 
 module.exports = {
 
@@ -20,7 +22,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [".js", ".jsx"]
+        extensions: [".js"]
     },
 
     devtool: "#source-map",
@@ -36,17 +38,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                enforce: "pre",
-                loader: "eslint-loader",
-                exclude: /node_modules/,
-                options: {
-                    emitWarning: true,
-                    configFile: "./.eslintrc.json"
-                }
-            },
-            {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
                 options: {
@@ -55,9 +47,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
-                use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
-            },
+                test: /\.s[ac]ss$/i,
+                use: [
+                  "style-loader",
+                  "css-loader",
+                  {
+                    loader: "sass-loader",
+                    options: {
+                      implementation: require("sass"),
+                      sassOptions: {
+                        fiber: require("fibers"),
+                      },
+                    },
+                  },
+                ],
+              },
             {
                 test:/\.(jpe?g|png|gif|svg)$/i,
                 use: [
@@ -76,6 +80,9 @@ module.exports = {
             title: "React_App",
             filename: resolve(__dirname, "dist", "index.html")
         }),
-        new CleanWebpackPlugin(["dist"])
+        new CleanWebpackPlugin(["dist"]),
+        new ESLintPlugin({
+            fix: true
+        })
     ]
 };
