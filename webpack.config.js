@@ -73,7 +73,6 @@ module.exports = {
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             template: "template.ejs",
             appMountId: "root",
